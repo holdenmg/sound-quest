@@ -217,13 +217,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	  }
 	});
   });
-//----------- Logic for getting user input and passing it to respective function--------------//
+//----------- Button listener logic for getting user input and passing it to respective function--------------//
   
 $( "#artist-search" ).on( "click", function(event) {
     
 	var artistInput = document.getElementById("artist-input").value.trim();
 	console.log(artistInput);
-	artistByName(artistInput)
+	artistByName(artistInput);
   });
 
 
@@ -232,6 +232,14 @@ $( "#song-search" ).on( "click", function(event) {
 	var songInput = document.getElementById("song-input").value.trim()
 	console.log(songInput);
 	songByName(songInput)
+  });
+
+  $( "#random-button" ).on( "click", function(event) {
+	randomArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"," m", "n", "o", "p", "q" , "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+	//construct a 3 character string from above array
+	random = randomArray[Math.floor(Math.random() *25)]+randomArray[Math.floor(Math.random() *25)]+randomArray[Math.floor(Math.random() *25)]
+	console.log(random)
+    songByName(random)
   });
 
 
