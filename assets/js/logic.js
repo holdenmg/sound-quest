@@ -1,14 +1,15 @@
+var relatedArtistArray = []
+
+
+
 //SPOTIFY API CALLS-------------------------------------
 
 
 //get artist id by name
 function artistByName(artistName){
-
-
-var settings = {
-	async: true,
-	crossDomain: true,
-	url: 'https://spotify-scraper.p.rapidapi.com/v1/artist/search?name=' + artistName,
+	
+	var url= 'https://spotify-scraper.p.rapidapi.com/v1/artist/search?name=' + artistName;
+	const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': '83780414dbmsh0e3f5dcb76d383ep17b5fdjsnbaa5ebd90548',
@@ -16,49 +17,53 @@ var settings = {
 	}
 };
 
-$.ajax(settings).done(function (data) {
-	console.log(data);
-	var artistID = data.id;
-	console.log(artistID);
-	artistInfo(artistID)
-	relatedArtists(artistID);
-
-});
+fetch(url, options)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+				console.log(data);
+				var artistID = data.id;
+				console.log(artistID);
+				relatedArtists(artistID);
+				});
+			} else {
+				alert('Error: ' + response.statusText);
+			}
+	});
 }
 
-//song id and youtube info by name from nameGetter
+//get artist id from song input and pass to related artist
 function songByName(songName){
 
-var settings = {
-	async: true,
-	crossDomain: true,
-	url: 'https://spotify-scraper.p.rapidapi.com/v1/track/download?track=' + songName,
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '83780414dbmsh0e3f5dcb76d383ep17b5fdjsnbaa5ebd90548',
-		'X-RapidAPI-Host': 'spotify-scraper.p.rapidapi.com'
+	var url = 'https://spotify-scraper.p.rapidapi.com/v1/track/search?name=' +songName;
+		const options ={
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': '83780414dbmsh0e3f5dcb76d383ep17b5fdjsnbaa5ebd90548',
+			'X-RapidAPI-Host': 'spotify-scraper.p.rapidapi.com'
+		}
 	}
-};
-
-$.ajax(settings).done(function (data) {
-	console.log(data);
-    var searchTerm = data.youtubeVideo.searchTerm;
-
-    //TO DO: call function to get artist based on song id
-    youtubeSearch(searchTerm)
-
-
-
-});
+	fetch(url, options)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+                console.log(data);
+                artistID = data.artists[0].id;
+				relatedArtists(artistID)
+                });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+	});
 }
 
 //get aritst overview
 function artistInfo(artistID){
 
-	const settings = {
-		async: true,
-		crossDomain: true,
-		url: 'https://spotify-scraper.p.rapidapi.com/v1/artist/overview?artistId=' + artistID,
+	var url = 'https://spotify-scraper.p.rapidapi.com/v1/artist/overview?artistId=' + artistID;
+		const options = {
 		method: 'GET',
 		headers: {
 			'X-RapidAPI-Key': '83780414dbmsh0e3f5dcb76d383ep17b5fdjsnbaa5ebd90548',
@@ -66,10 +71,18 @@ function artistInfo(artistID){
 		}
 	};
 	
-	$.ajax(settings).done(function (data) {
-		console.log(data);
-        var artistBio = data.biography
-        console.log("BIO" + artistBio)
+	fetch(url, options)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+				console.log(data);
+        		var artistBio = data.biography
+        		console.log("BIO" + artistBio)
+	        }); 
+		} else {
+			alert('Error: ' + response.statusText);
+		}
 	});
 
 }
@@ -77,10 +90,8 @@ function artistInfo(artistID){
 //get related artists
 function relatedArtists(artistID){
 
-	const settings = {
-        async: true,
-        crossDomain: true,
-        url: 'https://spotify-scraper.p.rapidapi.com/v1/artist/related?artistId=' + artistID,
+	var url = 'https://spotify-scraper.p.rapidapi.com/v1/artist/related?artistId=' + artistID;
+		const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': '83780414dbmsh0e3f5dcb76d383ep17b5fdjsnbaa5ebd90548',
@@ -88,18 +99,27 @@ function relatedArtists(artistID){
         }
     };
 	
-	$.ajax(settings).done(function (data) {
-		console.log(data);
-        for (i = 0; i < 3; i++){
-            var relatedArtist = data.relatedArtists.items[i].name;
-            console.log("Related Artist: " +relatedArtist)
-            var relatedArtistID = data.relatedArtists.items[i].id;
-            console.log('ID: ' + artistID);
-        }
-          
-            
+	fetch(url, options)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+				console.log(data);
+        		for (i = 0; i < 3; i++){
+					var relatedArtist = {
+        				name: data.relatedArtists.items[i].name,
+        				ID: data.relatedArtists.items[i].id,
+        			}
+					relatedArtistArray.push(relatedArtist)
+				}
+				var selectedArtist = relatedArtistArray[Math.floor(Math.random() *3)]
+				artistInfo(selectedArtist.ID);
+				youtubeSearch(selectedArtist.name)
+			});
+		} else {
+			alert('Error: ' + response.statusText);
+		}
 	});
-
 }
 
 
@@ -110,28 +130,38 @@ function relatedArtists(artistID){
 //Temporary prompt for testing purposes
 //var youSearch = prompt('Youtube search word')
 function youtubeSearch(name){
-var apiUrl =   'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=' + name + '&key=AIzaSyCgUCwJgAvz6ez56K1___znCggahrX9jtg'  
+	var url = 'https://youtube-search-results.p.rapidapi.com/youtube-search/?q=' + name + 'artist';
+		const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': '83780414dbmsh0e3f5dcb76d383ep17b5fdjsnbaa5ebd90548',
+			'X-RapidAPI-Host': 'youtube-search-results.p.rapidapi.com'
+		}
+	};
 
-
-  fetch(apiUrl).then(function (response) {
-    if (response.ok) {
-      response.json().then(function (data) {
-        console.log(data);
-        let videos = data.items;
-        let videoContainer = document.querySelector(".youtube-container");
-        for (i = 0; i < videos.length; i++){
-          
-          imgUrl = videos[i].snippet.thumbnails.default.url
-          console.log(imgUrl);
-         // videoContainer.innerHTML = '<img src ="${videos.snippet.thumbnails.high.url}>"'
-        }
-      });
-    } else {
-      alert('Error: ' + response.statusText);
-    }
-  });
-
+	fetch(url, options)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+					console.log(data);
+					for(i = 0; i < 3; i++){
+						if(data.items[i].type = "video"){
+							if(data.items[i].url){
+							var urlVideo = data.items[i].url;
+							}
+							console.log(urlVideo);
+							var thumbnail = data.items[i].bestThumbnail.url
+							console.log(thumbnail)
+						}
+					}
+				});
+			} else {
+				alert('Error: ' + response.statusText);
+			}
+		});
 }
+
 //-----------------LOGIC FOR MODALS------------------------//
 document.addEventListener('DOMContentLoaded', () => {
 	// Functions to open and close a modal
@@ -189,13 +219,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	  }
 	});
   });
-//----------- Logic for getting user input and passing it to respective function--------------//
+//----------- Button listener logic for getting user input and passing it to respective function--------------//
   
 $( "#artist-search" ).on( "click", function(event) {
     
 	var artistInput = document.getElementById("artist-input").value.trim();
 	console.log(artistInput);
-	artistByName(artistInput)
+	artistByName(artistInput);
   });
 
 
@@ -206,8 +236,14 @@ $( "#song-search" ).on( "click", function(event) {
 	songByName(songInput)
   });
 
+  $( "#random-button" ).on( "click", function(event) {
+	randomArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"," m", "n", "o", "p", "q" , "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+	//construct a 3 character string from above array
+	random = randomArray[Math.floor(Math.random() *25)]+randomArray[Math.floor(Math.random() *25)]+randomArray[Math.floor(Math.random() *25)]
+	console.log(random)
+    songByName(random)
+  });
 
 
 
-//artistNameGetter();
-//songNameGetter();
+
