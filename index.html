@@ -13,15 +13,62 @@
   <body>
     <nav class="navbar has-shadow is-white">
       <div class="navbar-brand">
-        <a class="navbar-item">Sound Quest </a>
+        <a class="navbar-item has-text-weight-bold is-size-5">Sound Quest </a>
       </div>
 
       <div class="navbar-menu" id="nav-links">
         <div class="navbar-end">
-          <a class="button is-ghost">Saved Artists</a>
+          <a class="button is-ghost is-size-5">Saved Artists</a>
         </div>
       </div>
     </nav>
+
+    <div
+      class="column is full has-text-centered has-text-weight-bold p-6 m-6 is-size-1"
+    >
+      Find new artists and songs based on your tastes!!
+    </div>
+
+    <div id="search-buttons">
+      <button id = "random-button" class = "button " >RANDOM</button>
+      <button id = "artist-button" class ="button artist-modal-trigger" data-target = "artist-modal">BY ARTIST</button>
+      <button id = "song-button" class = "button song-modal-trigger" data-target = "song-modal">BY SONG</button>
+    </div>
+
+    <div id = "artist-modal" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Quest by artist</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <input id = "artist-input" class="input is-rounded" type="text" placeholder="Enter an artist">
+        </section>
+        <footer class="modal-card-foot">
+          <button id = "artist-search" class="button is-success">Begin Quest</button>
+          <button  class="button">Cancel</button>
+        </footer>
+      </div>
+    </div>
+
+    <div id = "song-modal" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Quest by song</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <input id = "song-input" class="input is-rounded" type="text" placeholder="Enter a song">
+        </section>
+        <footer class="modal-card-foot">
+          <button id = song-search class="button is-success">Begin Quest</button>
+          <button class="button">Cancel</button>
+        </footer>
+      </div>
+    </div>
+
 
     <footer class="footer">
       <div class="content has-text-centered">
