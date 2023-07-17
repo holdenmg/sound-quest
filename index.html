@@ -29,6 +29,47 @@
       Find new artists and songs based on your tastes!!
     </div>
 
+    <div id="search-buttons">
+      <button id = "random-button" class = "button " >RANDOM</button>
+      <button id = "artist-button" class ="button artist-modal-trigger" data-target = "artist-modal">BY ARTIST</button>
+      <button id = "song-button" class = "button song-modal-trigger" data-target = "song-modal">BY SONG</button>
+    </div>
+
+    <div id = "artist-modal" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Quest by artist</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <input id = "artist-input" class="input is-rounded" type="text" placeholder="Enter an artist">
+        </section>
+        <footer class="modal-card-foot">
+          <button id = "artist-search" class="button is-success">Begin Quest</button>
+          <button  class="button">Cancel</button>
+        </footer>
+      </div>
+    </div>
+
+    <div id = "song-modal" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Quest by song</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <input id = "song-input" class="input is-rounded" type="text" placeholder="Enter a song">
+        </section>
+        <footer class="modal-card-foot">
+          <button id = song-search class="button is-success">Begin Quest</button>
+          <button class="button">Cancel</button>
+        </footer>
+      </div>
+    </div>
+
+
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
