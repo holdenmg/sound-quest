@@ -147,7 +147,9 @@ function youtubeSearch(name){
 					console.log(data);
 					for(i = 0; i < 3; i++){
 						if(data.items[i].type = "video"){
+							if(data.items[i].url){
 							var urlVideo = data.items[i].url;
+							}
 							console.log(urlVideo);
 							var thumbnail = data.items[i].bestThumbnail.url
 							console.log(thumbnail)
