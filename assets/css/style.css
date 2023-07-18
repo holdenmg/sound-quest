@@ -9,3 +9,8 @@
 #song-button{
     background-color:aquamarine
 }
+
+body {
+    background-image: url(../Images/wallpaperflare.com_wallpaper.jpg);
+    background-size: cover;
+}
