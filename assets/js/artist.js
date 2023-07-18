@@ -1,5 +1,5 @@
 
-
+var savedArtists = JSON.parse(localStorage.getItem('savedArtists')) || [];
 
 
 //SPOTIFY API CALLS-------------------------------------
@@ -267,7 +267,22 @@ $( "#song-search" ).on( "click", function(event) {
     artistByName(artistName);
   });
 
-  
+  $("#save-button").on("click", function(event){
+    var savedArtist = {
+        artistName: $("#artist-name").text(),
+        artistUrl: $("#spotify-link").attr("href"),
+        artistImage: $("#artist-image").attr("src"),
+    }
+
+    savedArtists.push(savedArtist);
+        arraySavedArtists = JSON.stringify(savedArtists);
+        localStorage.setItem("savedArtists", arraySavedArtists);
+        $("#saved-confirmation").html("Artist added to <span style='color:magenta'> Saved Artists </span>&check;")  
+        $("#saved-confirmation").addClass("show");
+        $("#saved-confirmation" ).fadeOut( 2500, function() {
+         });
+
+  });
 
   
 
