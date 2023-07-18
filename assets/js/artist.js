@@ -78,7 +78,7 @@ function artistInfo(artistID){
                 response.json().then(function (data) {
 				console.log(data);
         		var artistBio = data.biography
-        		console.log("BIO" + artistBio)
+        		$("#artist-bio").html(artistBio);
 	        }); 
 		} else {
 			alert('Error: ' + response.statusText);
@@ -105,6 +105,10 @@ function relatedArtists(artistID){
                 console.log(response);
                 response.json().then(function (data) {
 				console.log(data);
+                if (!data.relatedArtists.items[0].name){
+                    alert("This quest must be abandoned, please try again!")
+
+                }
                 var relatedArtistArray = []
         		for (i = 0; i < 3; i++){
 					var relatedArtist = {
@@ -116,6 +120,7 @@ function relatedArtists(artistID){
 				var selectedArtist = relatedArtistArray[Math.floor(Math.random() *3)]
 				artistInfo(selectedArtist.ID);
 				youtubeSearch(selectedArtist.name)
+                $("#artist-name").text(selectedArtist.name);
                 
 			});
 		} else {
@@ -132,7 +137,7 @@ function relatedArtists(artistID){
 //Temporary prompt for testing purposes
 //var youSearch = prompt('Youtube search word')
 function youtubeSearch(name){
-	var url = 'https://youtube-search-results.p.rapidapi.com/youtube-search/?q=' + name + 'artist';
+	var url = 'https://youtube-search-results.p.rapidapi.com/youtube-search/?q=' + name + ' muisical artist';
 		const options = {
 		method: 'GET',
 		headers: {
@@ -246,6 +251,10 @@ $( "#song-search" ).on( "click", function(event) {
 
   $( "#home-button" ).on( "click", function(event) {
 	document.location.replace('./index.html');
+  });
+
+  $("#start-over").on("click", function(event){
+    location.reload(true);
   });
 
 
