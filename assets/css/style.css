@@ -33,3 +33,8 @@
 #search-buttons {
     font-family: 'Quicksand', sans-serif;
 }
+
+.homepage-image {
+    max-width: 100%;
+    height: auto;
+}
