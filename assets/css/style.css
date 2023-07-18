@@ -42,3 +42,8 @@
 .navbar {
     background-color: aquamarine;
 }
+
+#video-link {
+    width: 500px;
+    height: 300px;
+}
