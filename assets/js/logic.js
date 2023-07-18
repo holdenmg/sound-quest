@@ -226,6 +226,7 @@ $( "#artist-search" ).on( "click", function(event) {
 	var artistInput = document.getElementById("artist-input").value.trim();
 	console.log(artistInput);
 	artistByName(artistInput);
+	document.location.replace('./artist.html');
   });
 
 
@@ -234,6 +235,7 @@ $( "#song-search" ).on( "click", function(event) {
 	var songInput = document.getElementById("song-input").value.trim()
 	console.log(songInput);
 	songByName(songInput)
+	document.location.replace('./artist.html');
   });
 
   $( "#random-button" ).on( "click", function(event) {
@@ -242,7 +244,13 @@ $( "#song-search" ).on( "click", function(event) {
 	random = randomArray[Math.floor(Math.random() *25)]+randomArray[Math.floor(Math.random() *25)]+randomArray[Math.floor(Math.random() *25)]
 	console.log(random)
     songByName(random)
+	document.location.replace('./artist.html');
   });
+
+  $( "#home-button" ).on( "click", function(event) {
+	document.location.replace('./index.html');
+  });
+
 
 
 
