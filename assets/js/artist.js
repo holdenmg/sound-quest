@@ -62,6 +62,10 @@ function songByName(songName){
 //get aritst overview
 function artistInfo(artistID){
 
+    $("#random-button").addClass("is-hidden");
+    $("#artist-button").addClass("is-hidden");
+    $("#song-button").addClass("is-hidden");
+
 	var url = 'https://spotify-scraper.p.rapidapi.com/v1/artist/overview?artistId=' + artistID;
 		const options = {
 		method: 'GET',
@@ -160,6 +164,9 @@ function youtubeSearch(name){
 					var videoID = data.items[0].id;
                     var embedLink = "https://www.youtube.com/embed/" + videoID;
 					$("#video-link").attr("src", embedLink);
+                    $("#continue-quest").removeClass("is-hidden");
+                    $("#save-button").removeClass("is-hidden");
+                    $("#start-over").removeClass("is-hidden");
                 });
             } else {
 				alert('Error: ' + response.statusText);
