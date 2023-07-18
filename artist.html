@@ -71,11 +71,12 @@
 
   <section class="artist">
     <h1 id = "artist-name" class="title has-text-centered"></h1>
+    <a id = "spotify-link" class ="has-text-centered"></a>
     <div class="columns m-2 is-clipped">
       <div class="column is-2 is-justify-content-center">
         <!--Artist Image-->
         <figure class="image is-128x128">
-          <img src="" />
+          <img id = "artist-image" src="" />
         </figure>
       </div>
       <div class="column is-5 is-justify-content-center">
@@ -93,11 +94,13 @@
         <p id = "artist-bio" class="block artist-info" style="overflow-y: scroll; width: 100%;">
          
         </p>
+        
+       
       </div>
     </div>
     <div class="buttons is-flex is-justify-content-center">
     <button class="button">Save</button>
-    <button class="button">Continue Quest</button>
+    <button id = "continue-quest" class="button">Continue Quest</button>
     <button id = "start-over" class="button">Start Over</button>
   </div>
   </section>

@@ -77,8 +77,13 @@ function artistInfo(artistID){
                 console.log(response);
                 response.json().then(function (data) {
 				console.log(data);
-        		var artistBio = data.biography
-        		$("#artist-bio").html(artistBio);
+        		var artistBio = data.biography;
+                var artistUrl = data.shareUrl
+        		$("#artist-bio").html("ARTIST BIOGRAPHY:  " + artistBio);
+                $("#spotify-link").text("See on Spotify")
+                $("#spotify-link").attr("href", artistUrl);
+                var artistImage = data.visuals.avatar[0].url;
+                $("#artist-image").attr("src", artistImage);
 	        }); 
 		} else {
 			alert('Error: ' + response.statusText);
@@ -210,15 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		closeModal($target);
 	  });
 	});
-  
-	// Add a keyboard event to close all modals
-	document.addEventListener('keydown', (event) => {
-	  const e = event || window.event;
-  
-	  if (e.keyCode === 27) { // Escape key
-		closeAllModals();
-	  }
-	});
+  	
   });
 //----------- Button listener logic for getting user input and passing it to respective function--------------//
   
@@ -258,6 +255,10 @@ $( "#song-search" ).on( "click", function(event) {
   });
 
 
+  $("#continue-quest").on("click", function(event){
+    var artistName = $("#artist-name").text();
+    artistByName(artistName);
+  });
 
-
+  
 
