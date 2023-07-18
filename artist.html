@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
@@ -75,7 +80,7 @@
     <div class="columns m-2 is-clipped">
       <div class="column is-2 is-justify-content-center">
         <!--Artist Image-->
-        <figure class="image is-128x128">
+        <figure class="image is-1by1">
           <img id = "artist-image" src="" />
         </figure>
       </div>
@@ -84,12 +89,13 @@
         <iframe
           id = "video-link"
           width= auto
-          height=auto
+          height= auto
           src=""
           frameborder="0"
          allowfullscreen
         ></iframe>
       </div>
+      <!--Artist info goes here-->
       <div class="column is-5 is-justify-content-center" style="display: flex;">
         <p id = "artist-bio" class="block artist-info" style="overflow-y: scroll; width: 100%;">
          
