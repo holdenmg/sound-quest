@@ -9,3 +9,27 @@
 #song-button{
     background-color:aquamarine
 }
+
+.description {
+    font-family: 'Inter', sans-serif;
+}
+
+#begin-button {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navbar-item {
+    font-family: 'Quicksand', sans-serif;
+} 
+
+.saved {
+    font-family: 'Quicksand', sans-serif;
+}
+
+#home-button {
+    font-family: 'Quicksand', sans-serif;
+}
+
+#search-buttons {
+    font-family: 'Quicksand', sans-serif;
+}
