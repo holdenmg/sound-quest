@@ -1,5 +1,5 @@
 
-
+var savedArtists = JSON.parse(localStorage.getItem('savedArtists')) || [];
 
 
 //SPOTIFY API CALLS-------------------------------------
@@ -114,22 +114,25 @@ function relatedArtists(artistID){
                 console.log(response);
                 response.json().then(function (data) {
 				console.log(data);
-                if (!data.relatedArtists.items[0].name){
+                if (data.relatedArtists.items[0].name === undefined){
                     alert("This quest must be abandoned, please try again!")
+					location.reload(true);
 
                 }
+				else {
                 var relatedArtistArray = []
-        		for (i = 0; i < 3; i++){
+        		for (i = 0; i < 10; i++){
 					var relatedArtist = {
         				name: data.relatedArtists.items[i].name,
         				ID: data.relatedArtists.items[i].id,
         			}
 					relatedArtistArray.push(relatedArtist)
 				}
-				var selectedArtist = relatedArtistArray[Math.floor(Math.random() *3)]
+				var selectedArtist = relatedArtistArray[Math.floor(Math.random() *9)]
 				artistInfo(selectedArtist.ID);
 				youtubeSearch(selectedArtist.name)
                 $("#artist-name").text(selectedArtist.name);
+				}
                 
 			});
 		} else {
@@ -146,7 +149,7 @@ function relatedArtists(artistID){
 //Temporary prompt for testing purposes
 //var youSearch = prompt('Youtube search word')
 function youtubeSearch(name){
-	var url = 'https://youtube-search-results.p.rapidapi.com/youtube-search/?q=' + name + ' muisical artist';
+	var url = 'https://youtube-search-results.p.rapidapi.com/youtube-search/?q=' + name + ' musical artist';
 		const options = {
 		method: 'GET',
 		headers: {
@@ -161,10 +164,21 @@ function youtubeSearch(name){
                 console.log(response);
                 response.json().then(function (data) {
 					console.log(data);
-					var videoID = data.items[0].id;
+					if(data.items[0] === undefined ){
+						$("video-link").text("No videos found!");
+					}
+					else{
+					var i = 0;
+						while(data.items[i].type != "video"){
+							i++
+						}
+					
+					var videoID = data.items[i].id;
                     var embedLink = "https://www.youtube.com/embed/" + videoID;
 					$("#video-link").attr("src", embedLink);
-                    $("#continue-quest").removeClass("is-hidden");
+                    
+					}
+					$("#continue-quest").removeClass("is-hidden");
                     $("#save-button").removeClass("is-hidden");
                     $("#start-over").removeClass("is-hidden");
                 });
@@ -265,6 +279,23 @@ $( "#song-search" ).on( "click", function(event) {
   $("#continue-quest").on("click", function(event){
     var artistName = $("#artist-name").text();
     artistByName(artistName);
+  });
+
+  $("#save-button").on("click", function(event){
+    var savedArtist = {
+        artistName: $("#artist-name").text(),
+        artistUrl: $("#spotify-link").attr("href"),
+        artistImage: $("#artist-image").attr("src"),
+    }
+
+    savedArtists.push(savedArtist);
+        arraySavedArtists = JSON.stringify(savedArtists);
+        localStorage.setItem("savedArtists", arraySavedArtists);
+        $("#saved-confirmation").html("Artist added to <span style='color:magenta'> Saved Artists </span>&check;")  
+        $("#saved-confirmation").addClass("show");
+        $("#saved-confirmation" ).fadeOut( 2500, function() {
+         });
+
   });
 
   
