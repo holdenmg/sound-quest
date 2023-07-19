@@ -22,23 +22,25 @@ function displaySavedArtists(){
         console.log(savedArtists[0].artistImage)
         if(savedArtists){
             for( i = 0; i < savedArtists.length; i++){
-                newDiv = document.createElement("div");
+               
                 newFig = document.createElement("figure");
+                $(newFig).attr("class", "img is-256x256");
                 newImg = document.createElement("img")
                 newLink = document.createElement("a")
                 artistImageUrl = savedArtists[i].artistImage
                 $(newImg).attr("src", artistImageUrl);
+                $(newImg).attr("class", "is-rounded");
                 artistName = savedArtists[i].artistName
                 $(newLink).text(artistName);
                 artistUrl = savedArtists[i].artistUrl
                 $(newLink).attr("href", artistUrl);
                 newFig.appendChild(newImg);
-                newDiv.appendChild(newFig);
-                newDiv.appendChild(newLink);
-                containerEl.appendChild(newDiv);
+               
+                newFig.appendChild(newLink);
+                containerEl.appendChild(newFig);
             }
             var clearButton = document.createElement("button")
-            $(clearButton).attr("class", "button")
+            $(clearButton).attr("class", "button is-centered")
             $(clearButton).attr("id", "clear-button")
             $(clearButton).text("CLEAR SAVED ARTISTS")
             containerEl.appendChild(clearButton);

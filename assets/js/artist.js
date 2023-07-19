@@ -292,7 +292,7 @@ $( "#song-search" ).on( "click", function(event) {
         arraySavedArtists = JSON.stringify(savedArtists);
         localStorage.setItem("savedArtists", arraySavedArtists);
         $("#saved-confirmation").html("Artist added to <span style='color:magenta'> Saved Artists </span>&check;")  
-        $("#saved-confirmation").addClass("show");
+    	$("#saved-confirmation").attr("style", "display = block");
         $("#saved-confirmation" ).fadeOut( 2500, function() {
          });
 
