@@ -165,7 +165,7 @@ function youtubeSearch(name){
                 response.json().then(function (data) {
 					console.log(data);
 					if(data.items[0] === undefined ){
-						$("video-link").value("No videos found!");
+						$("video-link").text("No videos found!");
 					}
 					else{
 					var i = 0;
