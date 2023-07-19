@@ -10,7 +10,10 @@ This project is meant to be used as a way to discover and save new artists based
 
 ## Image of the Live Website
 
-![Image of the website]()
+![Image of the website](/assets/images/Homepage%20(2).png)
+![Image of the website](/assets/images/Begin%20Quest.png)
+![Image of the website](/assets/images/ArtistPage.png)
+![Image of the website](/assets/images/Saved%20Artist.png)
 
 ## Links
 
