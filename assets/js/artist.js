@@ -181,6 +181,7 @@ function youtubeSearch(name){
 					$("#continue-quest").removeClass("is-hidden");
                     $("#save-button").removeClass("is-hidden");
                     $("#start-over").removeClass("is-hidden");
+					$("#artist").removeClass("is-hidden")
                 });
             } else {
 				alert('Error: ' + response.statusText);

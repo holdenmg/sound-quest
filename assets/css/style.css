@@ -1,13 +1,16 @@
 #random-button{
     background-color: rgb(150, 75, 221);
+    font-family: 'Inter', sans-serif;
 }
 
 #artist-button{
-    background-color: rgb(110, 110, 248)
+    background-color: rgb(110, 110, 248);
+    font-family: 'Inter', sans-serif;
 }
 
 #song-button{
-    background-color:aquamarine
+    background-color:rgb(5, 255, 172);
+    font-family: 'Inter', sans-serif;
 }
 
 
@@ -32,7 +35,7 @@
 }
 
 #search-buttons {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'inter', sans-serif;
 }
 
 .homepage-image {
@@ -50,3 +53,10 @@
     height: 300px;
 }
 
+#begin-button {
+    background-color: aquamarine;
+}
+
+.search{
+    font-family: 'Quicksand', sans-serif;
+}
