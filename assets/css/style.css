@@ -1,3 +1,4 @@
+
 #random-button{
     background-color: rgb(150, 75, 221);
     font-family: 'Quicksand', sans-serif;
@@ -11,46 +12,58 @@
 #song-button{
     background-color:rgb(5, 255, 172);
     font-family: 'Quicksand', sans-serif;
+
 }
 
-
 .description {
-    font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 #begin-button {
+
     font-family: 'Quicksand', sans-serif;
     background-color: aquamarine;
+
 }
 
 .navbar-item {
-    font-family: 'Quicksand', sans-serif;
-} 
+  font-family: "Quicksand", sans-serif;
+}
 
 .saved {
-    font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
+
+
 
 
 
 #search-buttons {
-    font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .homepage-image {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .navbar {
-    background-color: aquamarine;
-
+  background-color: aquamarine;
 }
 
 #video-link {
-    width: 500px;
-    height: 300px;
+  width: 500px;
+  height: 300px;
 }
+
+#begin-button:hover {
+  background-color: orangered;
+}
+
+.navbar {
+  background-color: yellowgreen;
+}
+
 
 
 
@@ -97,3 +110,9 @@
 #artist-name{
     font-size: 46px;
 }
+
+/* .drummer {
+  background-image: url(/sound-quest/assets/640-festive-background-with-guitar-and-musical-notes-illustration-ai-generative.jpg);
+  background-size: 400pc;
+} */
+
