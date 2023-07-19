@@ -1,4 +1,4 @@
-
+//saved artist array
 var savedArtists = JSON.parse(localStorage.getItem('savedArtists')) || [];
 
 
@@ -114,6 +114,7 @@ function relatedArtists(artistID){
                 console.log(response);
                 response.json().then(function (data) {
 				console.log(data);
+				// checks for related artists
                 if (data.relatedArtists.items[0].name === undefined){
                     alert("This quest must be abandoned, please try again!")
 					location.reload(true);
@@ -164,7 +165,7 @@ function youtubeSearch(name){
                 response.json().then(function (data) {
 					console.log(data);
 					if(data.items[0] === undefined ){
-						$("video-link").text("No videos found!");
+						$("video-link").value("No videos found!");
 					}
 					else{
 					var i = 0;
@@ -177,6 +178,7 @@ function youtubeSearch(name){
 					$("#video-link").attr("src", embedLink);
                     
 					}
+					//shows previsouly hidden buttons
 					$("#continue-quest").removeClass("is-hidden");
                     $("#save-button").removeClass("is-hidden");
                     $("#start-over").removeClass("is-hidden");
@@ -239,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
   	
   });
 //----------- Button listener logic for getting user input and passing it to respective function--------------//
-  
+  // passes name to spotify api
 $( "#artist-search" ).on( "click", function(event) {
 	var artistInput = document.getElementById("artist-input").value.trim();
 	console.log(artistInput);
@@ -247,7 +249,7 @@ $( "#artist-search" ).on( "click", function(event) {
 	
   });
 
-
+//passes name to spotify
 $( "#song-search" ).on( "click", function(event) {
  
 	var songInput = document.getElementById("song-input").value.trim()
@@ -292,7 +294,7 @@ $( "#song-search" ).on( "click", function(event) {
         arraySavedArtists = JSON.stringify(savedArtists);
         localStorage.setItem("savedArtists", arraySavedArtists);
         $("#saved-confirmation").html("Artist added to <span style='color:magenta'> Saved Artists </span>&check;")  
-        $("#saved-confirmation").addClass("show");
+    	$("#saved-confirmation").attr("style", "display = block");
         $("#saved-confirmation" ).fadeOut( 2500, function() {
          });
 
