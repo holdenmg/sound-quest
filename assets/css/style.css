@@ -1,52 +1,65 @@
-#random-button{
-    background-color: rgb(150, 75, 221);
+#random-button {
+  background-color: rgb(150, 75, 221);
 }
 
-#artist-button{
-    background-color: rgb(110, 110, 248)
+#artist-button {
+  background-color: rgb(110, 110, 248);
 }
 
-#song-button{
-    background-color:aquamarine
+#song-button {
+  background-color: aquamarine;
 }
-
 
 .description {
-    font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 #begin-button {
-    font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .navbar-item {
-    font-family: 'Quicksand', sans-serif;
-} 
+  font-family: "Quicksand", sans-serif;
+}
 
 .saved {
-    font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 #home-button {
-    font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 #search-buttons {
-    font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .homepage-image {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .navbar {
-    background-color: aquamarine;
-
+  background-color: aquamarine;
 }
 
 #video-link {
-    width: 500px;
-    height: 300px;
+  width: 500px;
+  height: 300px;
 }
 
+.test {
+  background-image: url(/sound-quest/assets/rock-1577380.jpg);
+  background-size: 300px;
+}
+
+#begin-button:hover {
+  background-color: purple;
+}
+#begin-button1:hover {
+  background-color: red;
+}
+
+.navbar {
+  background-color: yellowgreen;
+}
