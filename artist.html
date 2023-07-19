@@ -18,24 +18,25 @@
 <body>
   <nav class="navbar has-shadow">
     <div class="navbar-brand">
-      <a class="navbar-item has-text-weight-bold is-size-5">Sound Quest </a>
+      <a href = index.html class="navbar-item has-text-weight-bold is-size-3">Sound Quest </a>
     </div>
 
     <div class="navbar-menu" id="nav-links">
       <div class="navbar-end">
-        <a  id= "home-button" class="button is-ghost is-size-5">Return Home</a>
+        
+        <a id = "saved-button" class="button has-text-weight-bold  is-size-7">Saved Artists</a>
       </div>
     </div>
   </nav>
 
 
-  <div id = "search">
 
 
-  <div id="search-buttons">
-    <button id = "random-button" class = "button " >RANDOM</button>
-    <button id = "artist-button" class ="button artist-modal-trigger" data-target = "artist-modal">BY ARTIST</button>
-    <button id = "song-button" class = "button song-modal-trigger" data-target = "song-modal">BY SONG</button>
+
+  <div id="search-buttons" class="buttons is-centered">
+    <button id = "random-button" class = "button has-text-weight-bold search " >RANDOM</button>
+    <button id = "artist-button" class ="button has-text-weight-bold artist-modal-trigger search" data-target = "artist-modal">BY ARTIST</button>
+    <button id = "song-button" class = "button has-text-weight-bold song-modal-trigger search" data-target = "song-modal">BY SONG</button>
   </div>
 
   <div id = "artist-modal" class="modal">
@@ -74,9 +75,9 @@
 
 </div>
 
-  <section class="artist">
+  <section id = "artist" class="artist is-hidden">
     <h1 id = "artist-name" class="title has-text-centered"></h1>
-    <a id = "spotify-link" class ="has-text-centered"></a>
+    <a id = "spotify-link" class ="has-text-centered is-centered"></a>
     <div class="columns m-2 is-clipped">
       <div class="column is-2 is-justify-content-center">
         <!--Artist Image-->
@@ -119,11 +120,8 @@
         <a href="https://github.com/arnald18">Arnaldo Henriquez</a>
         <a href="https://github.com/holdenmg">Holden Garrison</a>
         <a href="https://github.com/cfinn7789">Chelsey Finn</a>
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
-        website content is licensed
-        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-          >CC BY NC SA 4.0</a
-        >.
+       
+        
       </p>
     </div>
   </footer>

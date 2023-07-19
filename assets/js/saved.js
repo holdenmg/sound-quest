@@ -49,7 +49,10 @@ function displaySavedArtists(){
 displaySavedArtists()
 
 $("#clear-button").on("click", function(event){
-    localStorage.clear()
+    localStorage.clear("savedArtists")
     location.reload(true);
 });
 
+$( "#begin-button3" ).on( "click", function(event) {
+    document.location.replace('./artist.html');
+    });

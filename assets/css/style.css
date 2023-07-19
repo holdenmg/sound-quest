@@ -1,13 +1,18 @@
-#random-button {
-  background-color: rgb(150, 75, 221);
+
+#random-button{
+    background-color: rgb(150, 75, 221);
+    font-family: 'Quicksand', sans-serif;
 }
 
-#artist-button {
-  background-color: rgb(110, 110, 248);
+#artist-button{
+    background-color: rgb(110, 110, 248);
+    font-family: 'Quicksand', sans-serif;
 }
 
-#song-button {
-  background-color: aquamarine;
+#song-button{
+    background-color:rgb(5, 255, 172);
+    font-family: 'Quicksand', sans-serif;
+
 }
 
 .description {
@@ -15,7 +20,10 @@
 }
 
 #begin-button {
-  font-family: "Quicksand", sans-serif;
+
+    font-family: 'Quicksand', sans-serif;
+    background-color: aquamarine;
+
 }
 
 .navbar-item {
@@ -26,9 +34,9 @@
   font-family: "Quicksand", sans-serif;
 }
 
-#home-button {
-  font-family: "Quicksand", sans-serif;
-}
+
+
+
 
 #search-buttons {
   font-family: "Quicksand", sans-serif;
@@ -56,7 +64,55 @@
   background-color: yellowgreen;
 }
 
+
+
+
+.search{
+    font-family: 'Quicksand', sans-serif;
+    top : 15px;
+    right: 10px;
+}
+
+#saved-button{
+    right : 30px;
+    top: 15px;
+}
+#home-button{
+    right: 60px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#begin-button2{
+    right: 10px;
+    top: -2px;
+}
+
+#begin-button3{
+    right : 30px;
+    top: 15px;
+}
+
+#save-button{
+    background-color: rgb(150, 75, 221);
+    font-family: 'Quicksand', sans-serif;
+}
+
+#continue-quest{
+    background-color: rgb(110, 110, 248);
+    font-family: 'Quicksand', sans-serif;
+}
+
+#start-over{
+    background-color:rgb(5, 255, 172);
+    font-family: 'Quicksand', sans-serif;
+}
+
+#artist-name{
+    font-size: 46px;
+}
+
 /* .drummer {
   background-image: url(/sound-quest/assets/640-festive-background-with-guitar-and-musical-notes-illustration-ai-generative.jpg);
   background-size: 400pc;
 } */
+
