@@ -1,16 +1,16 @@
 #random-button{
     background-color: rgb(150, 75, 221);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #artist-button{
     background-color: rgb(110, 110, 248);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #song-button{
     background-color:rgb(5, 255, 172);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 
@@ -20,6 +20,7 @@
 
 #begin-button {
     font-family: 'Quicksand', sans-serif;
+    background-color: aquamarine;
 }
 
 .navbar-item {
@@ -30,12 +31,10 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-#home-button {
-    font-family: 'Quicksand', sans-serif;
-}
+
 
 #search-buttons {
-    font-family: 'inter', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .homepage-image {
@@ -53,10 +52,48 @@
     height: 300px;
 }
 
-#begin-button {
-    background-color: aquamarine;
-}
+
 
 .search{
     font-family: 'Quicksand', sans-serif;
+    top : 15px;
+    right: 10px;
+}
+
+#saved-button{
+    right : 30px;
+    top: 15px;
+}
+#home-button{
+    right: 60px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#begin-button2{
+    right: 10px;
+    top: -2px;
+}
+
+#begin-button3{
+    right : 30px;
+    top: 15px;
+}
+
+#save-button{
+    background-color: rgb(150, 75, 221);
+    font-family: 'Quicksand', sans-serif;
+}
+
+#continue-quest{
+    background-color: rgb(110, 110, 248);
+    font-family: 'Quicksand', sans-serif;
+}
+
+#start-over{
+    background-color:rgb(5, 255, 172);
+    font-family: 'Quicksand', sans-serif;
+}
+
+#artist-name{
+    font-size: 46px;
 }

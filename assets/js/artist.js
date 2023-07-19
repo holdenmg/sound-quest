@@ -146,8 +146,7 @@ function relatedArtists(artistID){
 
 
 
-//Temporary prompt for testing purposes
-//var youSearch = prompt('Youtube search word')
+
 function youtubeSearch(name){
 	var url = 'https://youtube-search-results.p.rapidapi.com/youtube-search/?q=' + name + ' musical artist';
 		const options = {
@@ -297,6 +296,10 @@ $( "#song-search" ).on( "click", function(event) {
         $("#saved-confirmation" ).fadeOut( 2500, function() {
          });
 
+  });
+
+  $("#saved-button").on("click", function(event){
+	document.location.replace('./saved.html')
   });
 
   
