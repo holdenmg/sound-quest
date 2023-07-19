@@ -48,18 +48,15 @@
   height: 300px;
 }
 
-.test {
-  background-image: url(/sound-quest/assets/rock-1577380.jpg);
-  background-size: 300px;
-}
-
 #begin-button:hover {
-  background-color: purple;
-}
-#begin-button1:hover {
-  background-color: red;
+  background-color: orangered;
 }
 
 .navbar {
   background-color: yellowgreen;
 }
+
+/* .drummer {
+  background-image: url(/sound-quest/assets/640-festive-background-with-guitar-and-musical-notes-illustration-ai-generative.jpg);
+  background-size: 400pc;
+} */
