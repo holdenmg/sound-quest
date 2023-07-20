@@ -1,14 +1,8 @@
 containerEl = document.querySelector("#saved-artist-container");
 titleEl = document.querySelector("#title")
 
-$("#home-button").on("click", function(event){
-	document.location.replace("./index.html")
-  });
 
 
-  $("#clear-button").on("click", function(event){
-	document.location.replace("./index.html")
-  });
 function displaySavedArtists(){
 
     var savedArtistsArray = localStorage.getItem("savedArtists");
@@ -58,3 +52,7 @@ $("#clear-button").on("click", function(event){
 $( "#begin-button3" ).on( "click", function(event) {
     document.location.replace('./artist.html');
     });
+
+    $("#home-button").on("click", function(event){
+        document.location.replace("./index.html")
+      });

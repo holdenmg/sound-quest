@@ -115,7 +115,7 @@ function relatedArtists(artistID){
                 response.json().then(function (data) {
 				console.log(data);
 				// checks for related artists
-                if (data.relatedArtists.items[0].name === undefined){
+                if (data.relatedArtists.items[0].name = undefined){
                     alert("This quest must be abandoned, please try again!")
 					location.reload(true);
 
