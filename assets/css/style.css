@@ -62,9 +62,13 @@
     right: 10px;
 }
 
+#links{
+  align-items: center;
+
+}
+
 #saved-button{
-    right : 30px;
-    top: 15px;
+    
 }
 #home-button{
     right: 60px;
@@ -72,13 +76,11 @@
 }
 
 #begin-button2{
-    right: 10px;
-    top: -2px;
+   
 }
 
 #begin-button3{
-    right : 30px;
-    top: 15px;
+   
 }
 
 #save-button{
