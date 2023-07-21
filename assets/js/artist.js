@@ -254,7 +254,13 @@ document.addEventListener('DOMContentLoaded', () => {
 $( "#artist-search" ).on( "click", function(event) {
 	var artistInput = document.getElementById("artist-input").value.trim();
 	console.log(artistInput);
-	artistByName(artistInput);
+	if(artistInput != ""){
+		artistByName(artistInput);
+	}
+	else{
+		alert("Please enter an artist name");
+	}
+	
 	
   });
 
@@ -263,7 +269,13 @@ $( "#song-search" ).on( "click", function(event) {
  
 	var songInput = document.getElementById("song-input").value.trim()
 	console.log(songInput);
-	songByName(songInput)
+	if(songInput != ""){
+		songByName(songInput)
+		
+	}
+	else{
+		alert("Please enter a song name");
+	}
 	
   });
 
