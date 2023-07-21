@@ -164,6 +164,10 @@ function youtubeSearch(name){
             if (response.ok) {
                 response.json().then(function (data) {
 					console.log(data);
+					if(data.items.length === 0 ){
+						youtubeSearch(name)
+					}
+					else{
 						for (let i = 0; i < 10; i++){
 							if(data.items[i].type = "video"){
 								var videoID = data.items[i].id;
@@ -177,7 +181,12 @@ function youtubeSearch(name){
 								break;
 							}
 						}
-					})
+					}
+				});
+					
+                    
+				
+					
 					
             } else {
 				alert('Error: ' + response.statusText);
