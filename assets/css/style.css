@@ -70,24 +70,16 @@
     right: 10px;
 }
 
-#saved-button{
-    right : 30px;
-    top: 15px;
+#links{
+  align-items: center;
+
 }
+
 #home-button{
     right: 60px;
     font-family: 'Quicksand', sans-serif;
 }
 
-#begin-button2{
-    right: 10px;
-    top: -2px;
-}
-
-#begin-button3{
-    right : 30px;
-    top: 15px;
-}
 
 #save-button{
     background-color:  rgb(51, 122, 152);;;
@@ -95,12 +87,12 @@
 }
 
 #continue-quest{
-    background-color:rgb(255, 115, 0);
+    background-color:yellowgreen;
     font-family: 'Quicksand', sans-serif;
 }
 
 #start-over{
-    background-color:yellowgreen;
+    background-color: rgb(255, 115, 0);
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -115,4 +107,19 @@
 
 #clear-button{
     background-color: rgb(255, 115, 0);
+    margin-top: 7px
+
+}
+
+#spotify-link{
+  background-color: yellowgreen;
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 4px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+#title{
+  margin-top: 10px;
+  font-family: 'Quicksand', sans-serif;
 }
