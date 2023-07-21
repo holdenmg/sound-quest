@@ -79,12 +79,12 @@
 }
 
 #continue-quest{
-    background-color:rgb(255, 115, 0);
+    background-color:yellowgreen;
     font-family: 'Quicksand', sans-serif;
 }
 
 #start-over{
-    background-color:yellowgreen;
+    background-color: rgb(255, 115, 0);
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -99,4 +99,10 @@
 
 #clear-button{
     background-color: rgb(255, 115, 0);
+}
+
+#spotify-link{
+  background-color: yellowgreen;
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 4px;
 }

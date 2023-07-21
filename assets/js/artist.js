@@ -47,9 +47,7 @@ function songByName(songName){
 	fetch(url, options)
         .then(function (response) {
             if (response.ok) {
-                console.log(response);
                 response.json().then(function (data) {
-                console.log(data);
                 artistID = data.artists[0].id;
 				relatedArtists(artistID)
                 });
@@ -78,10 +76,11 @@ function artistInfo(artistID){
 	fetch(url, options)
         .then(function (response) {
             if (response.ok) {
-                console.log(response);
                 response.json().then(function (data) {
-				console.log(data);
         		var artistBio = data.biography;
+				if(artistBio === null){
+					artistBio = "No bio available"
+				}
                 var artistUrl = data.shareUrl
         		$("#artist-bio").html("ARTIST BIOGRAPHY:  " + artistBio);
                 $("#spotify-link").text("See on Spotify")
@@ -115,21 +114,23 @@ function relatedArtists(artistID){
                 response.json().then(function (data) {
 				console.log(data);
 				// checks for related artists
-                if (data.relatedArtists.items[0].name = undefined){
+                if (data.relatedArtists.totalCount === 0){
                     alert("This quest must be abandoned, please try again!")
 					location.reload(true);
 
                 }
 				else {
-                var relatedArtistArray = []
-        		for (i = 0; i < 10; i++){
-					var relatedArtist = {
-        				name: data.relatedArtists.items[i].name,
-        				ID: data.relatedArtists.items[i].id,
-        			}
-					relatedArtistArray.push(relatedArtist)
-				}
-				var selectedArtist = relatedArtistArray[Math.floor(Math.random() *9)]
+					//randomly select one of related artist
+					var count = data.relatedArtists.totalCount
+                	var relatedArtistArray = []
+        			for (i = 0; i < count; i++){
+						var relatedArtist = {
+        					name: data.relatedArtists.items[i].name,
+        					ID: data.relatedArtists.items[i].id,
+        				}
+						relatedArtistArray.push(relatedArtist)
+					}
+				var selectedArtist = relatedArtistArray[Math.floor(Math.random() *(count-1))]
 				artistInfo(selectedArtist.ID);
 				youtubeSearch(selectedArtist.name)
                 $("#artist-name").text(selectedArtist.name);
@@ -161,29 +162,37 @@ function youtubeSearch(name){
 	fetch(url, options)
         .then(function (response) {
             if (response.ok) {
-                console.log(response);
                 response.json().then(function (data) {
 					console.log(data);
-					if(data.items[0] === undefined ){
-						$("video-link").text("No videos found!");
+					if(data.items.length === 0 ){
+						alert("No videos found!");
+						$("#video-link").attr("src", "");
+						//shows previsouly hidden buttons
+						$("#continue-quest").removeClass("is-hidden");
+                    	$("#save-button").removeClass("is-hidden");
+                    	$("#start-over").removeClass("is-hidden");
+						$("#artist").removeClass("is-hidden")
 					}
 					else{
-					var i = 0;
-						while(data.items[i].type != "video"){
-							i++
+						for (let i = 0; i < 10; i++){
+							if(data.items[i].type = "video"){
+								var videoID = data.items[i].id;
+								var embedLink = "https://www.youtube.com/embed/" + videoID;
+								$("#video-link").attr("src", embedLink);
+								//shows previsouly hidden buttons
+								$("#continue-quest").removeClass("is-hidden");
+                    			$("#save-button").removeClass("is-hidden");
+                    			$("#start-over").removeClass("is-hidden");
+								$("#artist").removeClass("is-hidden")
+							}
 						}
-					
-					var videoID = data.items[i].id;
-                    var embedLink = "https://www.youtube.com/embed/" + videoID;
-					$("#video-link").attr("src", embedLink);
-                    
 					}
-					//shows previsouly hidden buttons
-					$("#continue-quest").removeClass("is-hidden");
-                    $("#save-button").removeClass("is-hidden");
-                    $("#start-over").removeClass("is-hidden");
-					$("#artist").removeClass("is-hidden")
-                });
+				});
+					
+                    
+				
+					
+					
             } else {
 				alert('Error: ' + response.statusText);
 			}
