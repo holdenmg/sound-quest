@@ -17,19 +17,20 @@ function displaySavedArtists(){
         if(savedArtists){
             for( i = 0; i < savedArtists.length; i++){
                
-                newFig = document.createElement("figure");
-                $(newFig).attr("class", "img is-256x256");
-                newImg = document.createElement("img")
-                newLink = document.createElement("a")
-                artistImageUrl = savedArtists[i].artistImage
+                var newFig = document.createElement("figure");
+                var newImg = document.createElement("img")
+                var newLink = document.createElement("a")
+                var artistImageUrl = savedArtists[i].artistImage
+                var artistUrl = savedArtists[i].artistUrl
+                console.log(artistUrl)
+                var artistName = savedArtists[i].artistName
                 $(newImg).attr("src", artistImageUrl);
-                $(newImg).attr("class", "is-rounded");
-                artistName = savedArtists[i].artistName
+                $(newImg).attr("class", "is-rounded image is-128x128");
                 $(newLink).text(artistName);
-                artistUrl = savedArtists[i].artistUrl
                 $(newLink).attr("href", artistUrl);
+                $(newLink).attr("id", "spotify-link");
+                $(newLink).attr("class", "button is-small");
                 newFig.appendChild(newImg);
-               
                 newFig.appendChild(newLink);
                 containerEl.appendChild(newFig);
             }
@@ -53,6 +54,3 @@ $( "#begin-button3" ).on( "click", function(event) {
     document.location.replace('./artist.html');
     });
 
-    $("#home-button").on("click", function(event){
-        document.location.replace("./index.html")
-      });

@@ -99,10 +99,19 @@
 
 #clear-button{
     background-color: rgb(255, 115, 0);
+    margin-top: 7px
+
 }
 
 #spotify-link{
   background-color: yellowgreen;
   font-family: 'Quicksand', sans-serif;
   border-radius: 4px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+#title{
+  margin-top: 10px;
+  font-family: 'Quicksand', sans-serif;
 }

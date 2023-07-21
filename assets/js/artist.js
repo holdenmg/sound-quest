@@ -84,7 +84,7 @@ function artistInfo(artistID){
                 var artistUrl = data.shareUrl
         		$("#artist-bio").html("ARTIST BIOGRAPHY:  " + artistBio);
                 $("#spotify-link").text("See on Spotify")
-                $("#spotify-link").attr("href", artistUrl);
+                $("#real-link").attr("href", artistUrl);
                 var artistImage = data.visuals.avatar[0].url;
                 $("#artist-image").attr("src", artistImage);
 	        }); 
@@ -295,7 +295,7 @@ $( "#song-search" ).on( "click", function(event) {
   $("#save-button").on("click", function(event){
     var savedArtist = {
         artistName: $("#artist-name").text(),
-        artistUrl: $("#spotify-link").attr("href"),
+        artistUrl: $("#real-link").attr("href"),
         artistImage: $("#artist-image").attr("src"),
     }
 
