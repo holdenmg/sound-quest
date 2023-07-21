@@ -164,16 +164,6 @@ function youtubeSearch(name){
             if (response.ok) {
                 response.json().then(function (data) {
 					console.log(data);
-					if(data.items.length === 0 ){
-						alert("No videos found!");
-						$("#video-link").attr("src", "");
-						//shows previsouly hidden buttons
-						$("#continue-quest").removeClass("is-hidden");
-                    	$("#save-button").removeClass("is-hidden");
-                    	$("#start-over").removeClass("is-hidden");
-						$("#artist").removeClass("is-hidden")
-					}
-					else{
 						for (let i = 0; i < 10; i++){
 							if(data.items[i].type = "video"){
 								var videoID = data.items[i].id;
@@ -184,14 +174,10 @@ function youtubeSearch(name){
                     			$("#save-button").removeClass("is-hidden");
                     			$("#start-over").removeClass("is-hidden");
 								$("#artist").removeClass("is-hidden")
+								break;
 							}
 						}
-					}
-				});
-					
-                    
-				
-					
+					})
 					
             } else {
 				alert('Error: ' + response.statusText);
