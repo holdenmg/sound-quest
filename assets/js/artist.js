@@ -150,12 +150,12 @@ function relatedArtists(artistID){
 
 
 function youtubeSearch(name){
-	var url = 'https://youtube-search-results.p.rapidapi.com/youtube-search/?q=' + name + ' musical artist';
+	var url = 'https://youtube138.p.rapidapi.com/search/?q=' + name + ' musical artist&hl=en&gl=US';
 		const options = {
 		method: 'GET',
 		headers: {
 			'X-RapidAPI-Key': '83780414dbmsh0e3f5dcb76d383ep17b5fdjsnbaa5ebd90548',
-			'X-RapidAPI-Host': 'youtube-search-results.p.rapidapi.com'
+			'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
 		}
 	};
 
@@ -164,14 +164,15 @@ function youtubeSearch(name){
             if (response.ok) {
                 response.json().then(function (data) {
 					console.log(data);
-					if(data.items.length === 0 ){
+					if(data.contents.length === 0 ){
 						youtubeSearch(name)
 					}
 					else{
 						for (let i = 0; i < 10; i++){
-							if(data.items[i].type = "video"){
-								var videoID = data.items[i].id;
+							if(data.contents[i].type = "video"){
+								var videoID = data.contents[i].video.videoId;
 								var embedLink = "https://www.youtube.com/embed/" + videoID;
+								console.log(embedLink);
 								$("#video-link").attr("src", embedLink);
 								//shows previsouly hidden buttons
 								$("#continue-quest").removeClass("is-hidden");
