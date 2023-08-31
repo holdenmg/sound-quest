@@ -89,7 +89,7 @@ function artistInfo(artistID){
                 $("#artist-image").attr("src", artistImage);
 	        }); 
 		} else {
-			alert('Error: ' + response.statusText);
+			alert('Error with Spotify API, please try again')
 		}
 	});
 
@@ -169,7 +169,7 @@ function youtubeSearch(name){
 					}
 					else{
 						for (let i = 0; i < 10; i++){
-							if(!data.contents.channel){
+							if(!data.contents[i].channel){
 								var videoID = data.contents[i].video.videoId;
 								var embedLink = "https://www.youtube.com/embed/" + videoID;
 								console.log(embedLink);
