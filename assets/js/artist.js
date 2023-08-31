@@ -169,7 +169,7 @@ function youtubeSearch(name){
 					}
 					else{
 						for (let i = 0; i < 10; i++){
-							if(data.contents[i].type = "video"){
+							if(!data.contents.channel){
 								var videoID = data.contents[i].video.videoId;
 								var embedLink = "https://www.youtube.com/embed/" + videoID;
 								console.log(embedLink);
